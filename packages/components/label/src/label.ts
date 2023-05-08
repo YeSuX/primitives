@@ -2,11 +2,13 @@ import type { ComponentPublicInstance } from 'vue'
 import { computed, defineComponent, h, ref } from 'vue'
 import type { ComponentPropsWithoutRef, ElementRef } from '@oku-ui/primitive'
 import { Primitive } from '@oku-ui/primitive'
+import type { MergeProps } from '@oku-ui/utils'
 
 type PrimitiveLabelProps = ComponentPropsWithoutRef<typeof Primitive.label>
 
-interface LabelProps extends PrimitiveLabelProps { }
 type LabelElement = ElementRef<typeof Primitive.label>
+
+type LabelProps = MergeProps<typeof label, PrimitiveLabelProps>
 
 const NAME = 'Label'
 
@@ -31,7 +33,7 @@ const label = defineComponent({
           event.preventDefault()
       },
     },
-    slots.default?.(),
+    () => slots.default?.(),
     )
     return originalReturn as unknown as {
       innerRef: LabelElement

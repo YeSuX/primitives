@@ -1,5 +1,12 @@
-export { useControllableRef } from './useControllableRef'
+import { computedEager } from '@vueuse/core'
+
+export { useControllable } from './useControllable'
 export { useCallbackRef } from './useCallbackRef'
 export { useSize } from './useSize'
 export { usePrevious } from './usePrevious'
-export { useComposedRefs, composeRefs } from './useComposedRefs'
+export { useRef } from './useRef'
+export { unrefElement } from './unrefElement'
+export { useId } from './useId'
+export type { MaybeComputedElementRef } from './unrefElement'
+
+export { computedEager }
